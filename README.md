@@ -1,6 +1,6 @@
 # Time MCP
 
-![Screenshot](images/TimeMCPscreenshot.png)
+![Screenshot](images/Time-MCPscreenshot.png)
 
 A simple and lightweight Model Context Protocol (MCP) server that provides tools to fetch the current date and time from your system. Perfect for integrating time-related functionality into Claude, Gemini CLI, and other MCP-compatible LLM applications.
 
