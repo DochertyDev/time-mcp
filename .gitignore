@@ -59,6 +59,9 @@ env/
 *~
 .DS_Store
 
+# Context Docs
+.context/
+
 # MCP specific
 .mcp_inspector/
 mcp.log

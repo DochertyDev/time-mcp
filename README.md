@@ -1,22 +1,60 @@
-# Time MCP
+<p align="center">
+  <a href="https://github.com/DochertyDev/time-mcp">
+    <img src="images/apple-touch-icon.png" width="150" alt="Time MCP">
+  </a>
+</p>
 
-![Screenshot](images/Time-MCPscreenshot.png)
+<h1 align="center">
+Time MCP
+</h1>
 
-A simple and lightweight Model Context Protocol (MCP) server that provides tools to fetch the current date and time from your system. Perfect for integrating time-related functionality into Claude, Gemini CLI, and other MCP-compatible LLM applications.
+<h2 align="center">Effortless system time access, anywhere your LLM needs it.</h2>
+
+<div align="center">
+
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![GitHub Stars](https://img.shields.io/github/stars/DochertyDev/time-mcp)](https://github.com/DochertyDev/time-mcp)
+
+</div>
+
+:star: _Love Time MCP? Give us a star to help other developers discover it!_
+
+<br />
+
+<div>
+<img src="images/Time-MCPscreenshot.png" alt="Time MCP Screenshot" width="800" style="border-radius: 16px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2); transform: perspective(1000px) rotateX(2deg); transition: transform 0.3s ease;">
+</div>
+
+---
+
+## 📋 Table of Contents
+
+- [Overview](#-overview)
+- [Quick Start](#-quick-start-local-development)
+- [Usage](#️-usage)
+- [Technologies Used](#️-technologies-used)
+- [Security Notes](#-security-notes)
+- [Troubleshooting](#-troubleshooting)
+- [Contributing](#-contributing)
+- [Support the Project](#-support-the-project)
+- [Disclaimer](#️-disclaimer)
+
+## 📄 Overview
+
+Time MCP is a simple and lightweight Model Context Protocol (MCP) server that provides tools to fetch the current date and time from your system. It's perfect for integrating time-related functionality into Claude, Gemini CLI, and other MCP-compatible LLM applications.
 
 This MCP demonstrates core MCP functionality with a focused, practical use case that works reliably across all MCP-compatible platforms.
 
-## Features
+### Features
 
 This MCP provides the following tools:
 
-- **get_current_time()** - Returns the current time in HH:MM:SS format
-- **get_current_date()** - Returns the current date in YYYY-MM-DD format
-- **get_current_datetime()** - Returns both date and time in ISO 8601 format
-- **get_time_components()** - Returns detailed breakdown of time (year, month, day, hour, minute, second, day of week)
-- **get_unix_timestamp()** - Returns the current Unix timestamp
+-   **get_current_time()** - Returns the current time in HH:MM:SS format
+-   **get_current_date()** - Returns the current date in YYYY-MM-DD format
+-   **get_current_datetime()** - Returns both date and time in ISO 8601 format
+-   **get_time_components()** - Returns detailed breakdown of time (year, month, day, hour, minute, second, day of week)
+-   **get_unix_timestamp()** - Returns the current Unix timestamp
 
-## Installation
+## 🚀 Quick Start (Local Development)
 
 ### Prerequisites
 - Python 3.9 or higher
@@ -33,22 +71,28 @@ pip install time-mcp
 ### From Source (Development)
 
 1. Clone the repository:
-```bash
-git clone https://github.com/DochertyDev/time-mcp.git
-cd time-mcp
-```
 
-2. Install in development mode:
-```bash
-pip install -e .
-```
+    ```sh
+    git clone https://github.com/DochertyDev/time-mcp.git
+    ```
 
-3. Or install dependencies manually:
-```bash
-pip install -r requirements.txt
-```
+2. Navigate to the project directory:
 
-## Running the Server
+    ```sh
+    cd time-mcp
+    ```
+
+3. Install in development mode:
+    ```sh
+    pip install -e .
+    ```
+
+4. Or install dependencies manually:
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+### Running the Server
 
 To start the MCP server:
 
@@ -58,7 +102,7 @@ python src/server.py
 
 The server will start and wait for incoming MCP protocol connections.
 
-## Testing with MCP Inspector
+### Testing with MCP Inspector
 
 To debug and test your MCP with the MCP Inspector:
 
@@ -68,11 +112,13 @@ mcp dev src/server.py
 
 This will open the MCP Inspector interface where you can test each tool interactively.
 
-## Using with Claude Desktop
+## ⚙️ Usage
+
+### Using with Claude Desktop
 
 To add this MCP to Claude Desktop, update your `claude_desktop_config.json`:
 
-### If installed from PyPI:
+#### If installed from PyPI:
 ```json
 {
   "mcpServers": {
@@ -83,7 +129,7 @@ To add this MCP to Claude Desktop, update your `claude_desktop_config.json`:
 }
 ```
 
-### If installed from source:
+#### If installed from source:
 ```json
 {
   "mcpServers": {
@@ -95,9 +141,9 @@ To add this MCP to Claude Desktop, update your `claude_desktop_config.json`:
 }
 ```
 
-Replace `C:\\path\\to\\time-mcp` with the actual path to your time-mcp directory.
+Replace `C:\path\to\time-mcp` with the actual path to your time-mcp directory.
 
-## Using with Gemini CLI
+### Using with Gemini CLI
 
 Add to your Gemini CLI settings.json:
 
@@ -111,86 +157,53 @@ Add to your Gemini CLI settings.json:
 }
 ```
 
-## Project Structure
+## 🛠️ Technologies Used
 
-```
-time-mcp/
-├── src/
-│   └── server.py           # Main MCP server implementation
-├── tests/                  # Test files
-├── examples/               # Example usage scripts
-├── README.md               # This file
-├── pyproject.toml          # Project configuration
-└── requirements.txt        # Python dependencies
-```
+-   **FastMCP Framework**
+-   **Python 3.9+**
+-   **pip**
 
-## Code Structure
+## 🔒 Security Notes
 
-The server is implemented using the FastMCP framework, which simplifies MCP development:
+-   This MCP only accesses time-related information from your system
+-   No file system access
+-   No network requests
+-   No external API calls
+-   No credentials or secrets required
 
-```python
-from mcp.server.fastmcp import FastMCP
+## ❓ Troubleshooting
 
-mcp = FastMCP("time-mcp")
+**Issue**: MCP Inspector won't connect
+-   **Solution**: Ensure Python 3.9+ is installed and the mcp package is available
 
-@mcp.tool()
-def get_current_time() -> str:
-    """Get the current time from the system."""
-    # Implementation here
-    return result
+**Issue**: Tools not appearing in Claude
+-   **Solution**: Make sure the MCP server is running and properly configured in claude_desktop_config.json
 
-if __name__ == "__main__":
-    mcp.run()
-```
+**Issue**: Import errors
+-   **Solution**: Run `pip install -r requirements.txt` to ensure all dependencies are installed
 
-## Security Notes
+## 🤝 Contributing
 
-- This MCP only accesses time-related information from your system
-- No file system access
-- No network requests
-- No external API calls
-- No credentials or secrets required
+<div align="center">
+<a href="https://github.com/DochertyDev/time-mcp/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=DochertyDev/time-mcp&max=400&columns=20"  width="100"/>
+</a>
+</div>
 
-## Development
+We welcome contributions from the community! If you have suggestions for improvements or new features, feel free to open an issue or submit a pull request.
 
-To run tests:
+## 🌟 Support the Project
 
-```bash
-pytest tests/
-```
+**Love Time MCP?** Give us a ⭐ on GitHub!
 
-To format code:
+<div align="center">
+  <p>
+      <img width="800" src="https://api.star-history.com/svg?repos=DochertyDev/time-mcp&type=Date" alt="Star-history">
+  </p>
+</div>
 
-```bash
-black src/
-```
+If you encounter any issues, please open an issue [here](https://github.com/DochertyDev/time-mcp/issues).
 
-## Troubleshooting
+## ⚠️ Disclaimer
 
-**Issue:** MCP Inspector won't connect
-- Solution: Ensure Python 3.9+ is installed and the mcp package is available
-
-**Issue:** Tools not appearing in Claude
-- Solution: Make sure the MCP server is running and properly configured in claude_desktop_config.json
-
-**Issue:** Import errors
-- Solution: Run `pip install -r requirements.txt` to ensure all dependencies are installed
-
-## License
-
-MIT License - Feel free to use and modify as needed.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## Support
-
-If you encounter any issues, please open an issue on [GitHub](https://github.com/DochertyDev/time-mcp/issues).
-
-## Next Steps
-
-After using this MCP, consider:
-- Exploring other MCPs in the [Awesome MCP Servers](https://github.com/modelcontextprotocol/awesome-mcp-servers) repository
-- Building your own MCP using the [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk)
-- Contributing improvements or extensions to this project
+This project is intended for educational and experimental use. While every effort has been made to ensure its reliability, please use it responsibly and note that the authors cannot provide guarantees for every situation.
